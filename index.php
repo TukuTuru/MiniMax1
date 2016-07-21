@@ -50,7 +50,11 @@ else {
 	if ( have_posts() ) { 
 		while ( have_posts() ) { 
 			the_post();?>
-			<div class="container">
+			<div class="minimax1 container">
+			<?php if (defined('WPV_VERSION') && (get_post_meta($post->ID, '_views_template', true) > 0)) {
+				the_content();
+			}
+			else { ?>
 				<div class="row">
 					<div class="col-md-12">
 						<h1><?php the_title();?></h1>
@@ -60,12 +64,13 @@ else {
 					<div class="col-md-12">
 						<p><?php the_content();?></p>
 					</div>
-				</div>
-			</div><?php 
+				</div><?php
+			}?>
+			</div><!-- #minimax1 container --><?php 
 		}
 	}
 	else {?>
-		<div class="container">
+		<div class="minimax1 container">
 			<div class="row">
 				<div class="col-md-12">
 					<h1>No Posts</h1>
@@ -76,7 +81,7 @@ else {
 					<p>No Contents</p>
 				</div>
 			</div>
-		</div><?php 
+		</div><!-- #minimax1 container --><?php 
 	}
 	get_footer();
 }
