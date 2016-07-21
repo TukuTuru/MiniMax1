@@ -47,7 +47,6 @@ if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) {
  */
 else {
 	get_header();
-
 	if ( have_posts() ) { 
 		while ( have_posts() ) { 
 			the_post();?>
