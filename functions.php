@@ -27,5 +27,5 @@ add_action( 'wp_enqueue_scripts', 'minimax1_styles' );
 
 function minimax1_scripts() {
 	//Enqueue Bootstrap JS
-	wp_enqueue_script('minimax1-bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', '3.3.6', true);
+	wp_enqueue_script('minimax1-bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true);
 }
