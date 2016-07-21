@@ -1,18 +1,83 @@
 <?php
 /**
- * Template Name: Main Template
- * 
- * The main template file
+ * The Main Template File.
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * In MiniMax1 this Template also holds a Template name, 
- * as otherwise Toolset Layouts will not recognize the call for its render function.
- *
+ * A WordPress Theme falls back to index.php if no other Template is available
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @since MiniMax1 1.0.0
  */
+
+/** 
+ * Make this template a Page Template
+ *
+ * Toolset Layouts requires a PAGE Template to recognize the the_ddlayouts() call.
+ * But WordPress does not like a Page Template Name in the index.php.
+ * (other wise it will produce 2 Templates, one the native "Default" and the other the "Template Name")
+ * Therefore we make the index.php a Page Template ONLY when Layouts is active.
+ *
+ * @link https://developer.wordpress.org/themes/template-files-section/page-template-files/page-templates/
+ */
+
+if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) { 
+/* Template Name: Main Template */
+
+
+	/** 
+	 * Include Toolset Layouts the_ddlayout()
+	 *
+	 * Toolset Layouts requires a PAGE Template to include the the_ddlayouts() call.
+	 * We include it dynamically to not force the usage of Layouts even if active.
+	 * We include the Layout Call only if a Layout is assigned to content.
+	 * We also include the necessary header and footer.
+	 * Those could be custom header-layouts and footer-layouts files.
+	 *
+	 * @link https://wp-types.com/documentation/user-guides/layouts-theme-integration/
+	 */
+
+	get_header( ); //Call 'header-layouts' if you plan to style the header differntly
+		the_ddlayout( ); // Load a defualt 'default-layout-slug'. Layout must exist
+	get_footer( ); //Call 'footer-layouts' if you plan to style the footer differntly
+
+}
+
+/** 
+ * If Layouts is not active load a minimal WordPress default Loop.
+ * We call the header and footer as well
+ */
+else {
+	get_header();
+	if ( have_posts() ) { 
+		while ( have_posts() ) { 
+			the_post();?>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1><?php the_title();?></h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p><?php the_content();?></p>
+					</div>
+				</div>
+			</div><?php 
+		}
+	}
+	else {?>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>No Posts</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<p>No Contents</p>
+				</div>
+			</div>
+		</div><?php 
+	}
+	get_footer();
+}
+
