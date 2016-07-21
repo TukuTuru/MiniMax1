@@ -9,6 +9,8 @@
  */
 
 /** 
+ * Integrate Toolset Layouts PLugin 
+ *
  * Make this template a Page Template
  *
  * Toolset Layouts requires a PAGE Template to recognize the the_ddlayouts() call.
@@ -17,6 +19,8 @@
  * Therefore we make the index.php a Page Template ONLY when Layouts is active.
  *
  * @link https://developer.wordpress.org/themes/template-files-section/page-template-files/page-templates/
+ * 
+ * @since MiniMax1 1.0.0
  */
 
 if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) { 
@@ -24,7 +28,7 @@ if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) {
 
 
 	/** 
-	 * Include Toolset Layouts the_ddlayout()
+	 * Include Toolset Layouts the_ddlayout() call
 	 *
 	 * Toolset Layouts requires a PAGE Template to include the the_ddlayouts() call.
 	 * We include it dynamically to not force the usage of Layouts even if active.
@@ -33,6 +37,8 @@ if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) {
 	 * Those could be custom header-layouts and footer-layouts files.
 	 *
 	 * @link https://wp-types.com/documentation/user-guides/layouts-theme-integration/
+	 * 
+	 * @since MiniMax1 1.0.0
 	 */
 
 	get_header( ); //Call 'header-layouts' if you plan to style the header differntly
@@ -44,6 +50,10 @@ if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) {
 /** 
  * If Layouts is not active load a minimal WordPress default Loop.
  * We call the header and footer as well
+ * 
+ * @link https://codex.wordpress.org/The_Loop
+ *
+ * @since MiniMax1 1.0.0
  */
 else {
 	get_header();
@@ -51,9 +61,29 @@ else {
 		while ( have_posts() ) { 
 			the_post();?>
 			<div class="minimax1 container">
-			<?php if (defined('WPV_VERSION') && (get_post_meta($post->ID, '_views_template', true) > 0)) {
+			<?php 
+			/** 
+ 			 * If Toolset Views is active load only the_content().
+ 			 * Views replaces the_content() with its Content Templates.
+ 			 * Views stores the assigned Contnet Template in a hidden _views_template Field
+ 			 * We do load only the above "minimax1 container".
+ 			 *
+ 			 * @link https://developer.wordpress.org/reference/functions/the_content/
+ 			 * @link https://wp-types.com/documentation/user-guides/theme-support-for-content-templates/
+			 * 
+			 * @since MiniMax1 1.0.0
+			 */
+			if (defined('WPV_VERSION') && (get_post_meta($post->ID, '_views_template', true) > 0)) {
 				the_content();
 			}
+			/** 
+ 			 * If Toolset Views is not active load the_title() and the_content().
+ 			 * We load some more Bootsrap HTML to make things nice.
+ 			 * 
+ 			 * @link https://codex.wordpress.org/Function_Reference/the_title
+ 			 *
+ 			 * @since MiniMax1 1.0.0
+			 */
 			else { ?>
 				<div class="row">
 					<div class="col-md-12">
@@ -69,6 +99,12 @@ else {
 			</div><!-- #minimax1 container --><?php 
 		}
 	}
+	/** 
+ 	 * If no Posts are found output a default nothing found message
+ 	 * Again we load complete Bootstrap HTML
+ 	 *
+ 	 * @since MiniMax 1.0.0
+ 	 */
 	else {?>
 		<div class="minimax1 container">
 			<div class="row">

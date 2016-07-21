@@ -1,8 +1,11 @@
 <?php
 /**
- * The footer for MiniMax1.
+ * The Footer.
  *
  * Closes the Body and HTML tag.
+ * Calls wp_footer()
+ *
+ * @link https://codex.wordpress.org/Function_Reference/wp_footer
  *
  * @since MiniMax1 1.0.0
  */
