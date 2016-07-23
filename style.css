@@ -9,3 +9,22 @@ License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: MinimaX1
 */
+
+/*--------------------------------------------------------------
+# Word Break
+--------------------------------------------------------------*/
+
+#secondary {
+    word-wrap: break-word;
+-ms-word-break: break-all;
+/* Be VERY careful with this, breaks normal words wh_erever */
+word-break: break-all;
+/* Non standard for webkit */
+word-break: break-word;
+-webkit-hyphens: auto;
+-moz-hyphens: auto;
+hyphens: auto;
+    -ms-word-wrap: break-word;
+
+}
+

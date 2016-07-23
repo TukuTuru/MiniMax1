@@ -111,10 +111,7 @@ add_action( 'widgets_init', 'MinimaX1_widgets_init' );
  *
  * @since MiniMax 1.0.0
  */
-function MinimaX1_styles() {
-	//Enqueue the MinimaX1 Main Style Sheet
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
-        
+function MinimaX1_styles() {        
 	//Enqueue Bootstrap CSS
 	wp_enqueue_style( 'MinimaX1-bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', '3.3.6', 'all' );
         
@@ -123,6 +120,9 @@ function MinimaX1_styles() {
      *
      */
 	//wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '4.2.0', 'all' );
+
+	//Enqueue the MinimaX1 Main Style Sheet
+	wp_enqueue_style( 'style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'MinimaX1_styles' );
 
