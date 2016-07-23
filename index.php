@@ -77,13 +77,17 @@ else {
 			 			 * We do load only the above "MinimaX1 container".
 				 		 * We use is_wpv_content_template_assigned() that is defined in Views
 				 		 * But we could also simply get_post_meta _views_template > 0
+				 		 * Views does NOT check if is_home or is_front_page() so we need still to 
+				 		 * get_post_meta($post-ID, '_views_template', true) > 0
 				 		 *
 						 * @link https://developer.wordpress.org/reference/functions/the_content/
 			 			 * @link https://wp-types.com/documentation/user-guides/theme-support-for-content-templates/
+						 * @todo Juan should add check for is_home() and is_front_page to the Views API
+						 *       then we can remove the redundant check below.
 						 * 
 						 * @since MinimaX1 1.0.0
 						 */
-						if (defined('WPV_VERSION') && (is_wpv_content_template_assigned() == true)) {
+						if (defined('WPV_VERSION') && ((is_wpv_content_template_assigned() == true) OR (get_post_meta($post->ID, '_views_template', true) > 0))) {
 							the_content();
 							edit_post_link('edit: "' . $post->post_title . '"');
 						}
