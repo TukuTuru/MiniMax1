@@ -5,7 +5,7 @@
  * @link https://codex.wordpress.org/Theme_Development
  * @link https://codex.wordpress.org/Functions_File_Explained
  *
- * @since MiniMax1 1.0.0
+ * @since MinimaX1 1.0.0
  */
 
 /**
@@ -17,10 +17,10 @@
  *
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference/after_setup_theme
  *
- * @since MiniMax1 1.0.0
+ * @since MinimaX1 1.0.0
  */
-if ( ! function_exists( 'minimax1_setup' ) ) {
-	function minimax1_setup() {
+if ( ! function_exists( 'MinimaX1_setup' ) ) {
+	function MinimaX1_setup() {
 
 		/**
 		 * Let WordPress manage the document title.
@@ -31,7 +31,7 @@ if ( ! function_exists( 'minimax1_setup' ) ) {
 		 * @link https://developer.wordpress.org/reference/functions/add_theme_support/
 		 * @link https://codex.wordpress.org/Title_Tag
 		 *
-		 * @since MiniMax1 1.0.0
+		 * @since MinimaX1 1.0.0
 		 */
 		add_theme_support( 'title-tag' );
 
@@ -40,21 +40,19 @@ if ( ! function_exists( 'minimax1_setup' ) ) {
 		 *
 		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 		 *
-		 * @since MiniMax1 1.0.0
+		 * @since MinimaX1 1.0.0
 		 */
 		add_theme_support( 'post-thumbnails' );
 
 		/**
-		 * This theme uses wp_nav_menu() in 2 locations.
+		 * This theme uses wp_nav_menu() in 1 location.
 		 *
 		 * @link https://developer.wordpress.org/reference/functions/wp_nav_menu/
 		 *
-		 * @since MiniMax1 1.0.0
+		 * @since MinimaX1 1.0.0
 		 */
 		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary Menu', 'minimax1' ),
-			'secondary' => esc_html__( 'Secondary Menu', 'minimax1' ),
-
+			'primary' => esc_html__( 'Primary Menu', 'MinimaX1' )
 		) );
 
 		/**
@@ -62,19 +60,19 @@ if ( ! function_exists( 'minimax1_setup' ) ) {
 	 	 *
 	 	 * @link http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
 	 	 *
-	 	 * @since MiniMax1 1.0.0
+	 	 * @since MinimaX1 1.0.0
 	 	 */
 	    add_theme_support( 'woocommerce' );
 	}
 }
-add_action( 'after_setup_theme', 'minimax1_setup' );
+add_action( 'after_setup_theme', 'MinimaX1_setup' );
 
 /**
  * Integrate WooCommerce.
  *
  * @link http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
  *
- * @since MiniMax1 1.0.0
+ * @since MinimaX1 1.0.0
  */
 	/* 
 	 * First unhook the WooCommerce wrappers
@@ -85,8 +83,8 @@ add_action( 'after_setup_theme', 'minimax1_setup' );
 	/* 
 	 * Then hook in our own functions to display the wrappers our theme requires:
 	 */
-	add_action('woocommerce_before_main_content', '<div class="minimax1 container">', 10);
-	add_action('woocommerce_after_main_content', '</div><!-- #minimax1 container -->', 10);
+	add_action('woocommerce_before_main_content', '<div class="MinimaX1 container">', 10);
+	add_action('woocommerce_after_main_content', '</div><!-- #MinimaX1 container -->', 10);
 
 /**
  * Enqueue CSS styles and Fonts
@@ -95,12 +93,12 @@ add_action( 'after_setup_theme', 'minimax1_setup' );
  *
  * @since MiniMax 1.0.0
  */
-function minimax1_styles() {
-	//Enqueue the MiniMax1 Main Style Sheet
+function MinimaX1_styles() {
+	//Enqueue the MinimaX1 Main Style Sheet
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
         
 	//Enqueue Bootstrap CSS
-	wp_enqueue_style( 'minimax1-bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', '3.3.6', 'all' );
+	wp_enqueue_style( 'MinimaX1-bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', '3.3.6', 'all' );
         
 	/**
 	 * @todo Enqueue FontAwesome
@@ -108,16 +106,28 @@ function minimax1_styles() {
      */
 	//wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '4.2.0', 'all' );
 }
-add_action( 'wp_enqueue_scripts', 'minimax1_styles' );
+add_action( 'wp_enqueue_scripts', 'MinimaX1_styles' );
 
 /** 
  * Enqueue JS Scripts
  *
  * @link https://developer.wordpress.org/reference/functions/wp_enqueue_script/
  *
- * @since MiniMax1 1.0.0
+ * @since MinimaX1 1.0.0
  */
-function minimax1_scripts() {
+function MinimaX1_scripts() {
 	//Enqueue Bootstrap JS and add jQuery Dependency
-	wp_enqueue_script('minimax1-bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true);
+	wp_enqueue_script('MinimaX1-bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true);
+}
+add_action( 'wp_enqueue_scripts', 'MinimaX1_scripts' );
+
+/** 
+ * Autoloader Function for MinimaX1 Classes path 
+ *
+ * @link http://php.net/manual/en/function.spl-autoload-register.php
+ *
+ * @since MinimaX1 1.0.0
+ */
+function MinimaX1_autoloader($MinimaX1_class) {
+    include (__DIR__ . '/' .'MinimaX1-classes' . '/' . $MinimaX1_class . '.class.php');
 }
