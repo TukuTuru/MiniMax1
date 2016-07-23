@@ -52,9 +52,21 @@
              */
             wp_head();?>
         </head>
-
-    <!-- Open the Body -->
+    <?php
+    /**
+     * Open the body and add dynamic body class
+     * 
+     * @link https://developer.wordpress.org/reference/functions/body_class/
+     */
+    ?> 
     <body <?php body_class(); ?>>
-        <!--The Main NAvigation, Edit it in bootstrap-nav.php-->
-        <?php get_template_part( 'bootstrap-nav'); ?> 
-    
+
+        <?php 
+        /**
+         * The main navigation
+         * Edit in bootstrap-nav.php
+         *
+         * @link https://developer.wordpress.org/reference/functions/get_template_part/
+         */
+        get_template_part( 'bootstrap-nav'); ?> 
+        

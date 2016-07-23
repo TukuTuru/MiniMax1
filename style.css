@@ -1,11 +1,30 @@
 /*
 Theme Name: MinimaX1
 Theme URI: https://github.com/TukuTuru/MinimaX1
-Author: the TukuToi team
-Author URI: http://www.tukutoi.com
-Description: MinimaX1 is the minimalistic version of the MinimaX Theme series. It includes a dynamic integration of Toolset Plugins, comes with Bootstrap and is WPML ready. The rest is free to customize
-Version: 1.0.1
+Author: bedas
+Author URI: https://wordpress.org/support/profile/bedas
+Description: MinimaX1 is the minimalistic version of the MinimaX Theme series. It includes a dynamic integration of Toolset Plugins. It integrates Bootstrap. The rest is free to customize.
+Version: 1.0.2
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: MinimaX1
 */
+
+/*--------------------------------------------------------------
+# Word Break. Ensures Widget Contents are not screwing Row
+--------------------------------------------------------------*/
+
+#secondary {
+    word-wrap: break-word;
+-ms-word-break: break-all;
+/* Be VERY careful with this, breaks normal words wh_erever */
+word-break: break-all;
+/* Non standard for webkit */
+word-break: break-word;
+-webkit-hyphens: auto;
+-moz-hyphens: auto;
+hyphens: auto;
+    -ms-word-wrap: break-word;
+
+}
+
