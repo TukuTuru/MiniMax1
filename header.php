@@ -52,5 +52,9 @@
              */
             wp_head();?>
         </head>
+
     <!-- Open the Body -->
     <body <?php body_class(); ?>>
+        <!--The Main NAvigation, Edit it in bootstrap-nav.php-->
+        <?php get_template_part( 'bootstrap-nav'); ?> 
+    

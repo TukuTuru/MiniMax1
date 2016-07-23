@@ -5,7 +5,7 @@
  * A WordPress Theme falls back to index.php if no other Template is available
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
- * @since MiniMax1 1.0.0
+ * @since MinimaX1 1.0.0
  */
 
 /** 
@@ -20,7 +20,7 @@
  *
  * @link https://developer.wordpress.org/themes/template-files-section/page-template-files/page-templates/
  * 
- * @since MiniMax1 1.0.0
+ * @since MinimaX1 1.0.0
  */
 
 if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) { 
@@ -38,7 +38,7 @@ if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) {
 	 *
 	 * @link https://wp-types.com/documentation/user-guides/layouts-theme-integration/
 	 * 
-	 * @since MiniMax1 1.0.0
+	 * @since MinimaX1 1.0.0
 	 */
 
 	get_header( ); //Call 'header-layouts' if you plan to style the header differntly
@@ -53,25 +53,25 @@ if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) {
  * 
  * @link https://codex.wordpress.org/The_Loop
  *
- * @since MiniMax1 1.0.0
+ * @since MinimaX1 1.0.0
  */
 else {
 	get_header();
 	if ( have_posts() ) { 
 		while ( have_posts() ) { 
 			the_post();?>
-			<div class="minimax1 container">
+			<div class="MinimaX1 container">
 			<?php 
 			/** 
  			 * If Toolset Views is active load only the_content().
  			 * Views replaces the_content() with its Content Templates.
  			 * Views stores the assigned Contnet Template in a hidden _views_template Field
- 			 * We do load only the above "minimax1 container".
+ 			 * We do load only the above "MinimaX1 container".
  			 *
  			 * @link https://developer.wordpress.org/reference/functions/the_content/
  			 * @link https://wp-types.com/documentation/user-guides/theme-support-for-content-templates/
 			 * 
-			 * @since MiniMax1 1.0.0
+			 * @since MinimaX1 1.0.0
 			 */
 			if (defined('WPV_VERSION') && (get_post_meta($post->ID, '_views_template', true) > 0)) {
 				the_content();
@@ -82,7 +82,7 @@ else {
  			 * 
  			 * @link https://codex.wordpress.org/Function_Reference/the_title
  			 *
- 			 * @since MiniMax1 1.0.0
+ 			 * @since MinimaX1 1.0.0
 			 */
 			else { ?>
 				<div class="row">
@@ -96,7 +96,7 @@ else {
 					</div>
 				</div><?php
 			}?>
-			</div><!-- #minimax1 container --><?php 
+			</div><!-- #MinimaX1 container --><?php 
 		}
 	}
 	/** 
@@ -106,18 +106,18 @@ else {
  	 * @since MiniMax 1.0.0
  	 */
 	else {?>
-		<div class="minimax1 container">
+		<div class="MinimaX1 container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>No Posts</h1>
+					<h1><?php _e('No Posts', 'MinimaX1');?></h1>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<p>No Contents</p>
+					<p><?php _e('No Contents', 'MinimaX1');?></p>
 				</div>
 			</div>
-		</div><!-- #minimax1 container --><?php 
+		</div><!-- #MinimaX1 container --><?php 
 	}
 	get_footer();
 }
