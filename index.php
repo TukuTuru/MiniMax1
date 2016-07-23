@@ -56,57 +56,57 @@ if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) {
  * @since MinimaX1 1.0.0
  */
 else {
-	get_header();
-	if ( have_posts() ) { 
-		while ( have_posts() ) { 
-			the_post();?>
-			<div class="MinimaX1 container">
-			<?php 
-			/** 
- 			 * If Toolset Views is active load only the_content().
- 			 * Views replaces the_content() with its Content Templates.
- 			 * Views stores the assigned Contnet Template in a hidden _views_template Field
- 			 * We do load only the above "MinimaX1 container".
- 			 *
- 			 * @link https://developer.wordpress.org/reference/functions/the_content/
- 			 * @link https://wp-types.com/documentation/user-guides/theme-support-for-content-templates/
-			 * 
-			 * @since MinimaX1 1.0.0
-			 */
-			if (defined('WPV_VERSION') && (get_post_meta($post->ID, '_views_template', true) > 0)) {
-				the_content();
+	get_header();?>
+	<!-- open the main container-->
+	<div class="container-fluid"><?php
+		if ( have_posts() ) { 
+			while ( have_posts() ) {
+				the_post();
+				/** 
+		 		 * If Toolset Views is active load only the_content().
+		 		 * Views replaces the_content() with its Content Templates.
+				 * Views stores the assigned Contnet Template in a hidden _views_template Field
+	 			 * We do load only the above "MinimaX1 container".
+		 		 * We use is_wpv_content_template_assigned() that is defined in Views
+		 		 * But we could also simply get_post_meta _views_template > 0
+		 		 *
+				 * @link https://developer.wordpress.org/reference/functions/the_content/
+	 			 * @link https://wp-types.com/documentation/user-guides/theme-support-for-content-templates/
+				 * 
+				 * @since MinimaX1 1.0.0
+				 */
+				if (defined('WPV_VERSION') && (is_wpv_content_template_assigned() == true)) {
+					the_content();
+				}
+				/** 
+		 		 * If Toolset Views is not active load the_title() and the_content().
+				 * We load some more Bootsrap HTML to make things nice.
+	 			 * 
+	 			 * @link https://codex.wordpress.org/Function_Reference/the_title
+		 		 *
+		 		 * @since MinimaX1 1.0.0
+				 */
+				else { ?>
+					<div class="row">
+						<div class="col-md-12">
+							<h1><?php the_title();?></h1>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<p><?php the_content();?></p>
+						</div>
+					</div><?php
+				}
 			}
-			/** 
- 			 * If Toolset Views is not active load the_title() and the_content().
- 			 * We load some more Bootsrap HTML to make things nice.
- 			 * 
- 			 * @link https://codex.wordpress.org/Function_Reference/the_title
- 			 *
- 			 * @since MinimaX1 1.0.0
-			 */
-			else { ?>
-				<div class="row">
-					<div class="col-md-12">
-						<h1><?php the_title();?></h1>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<p><?php the_content();?></p>
-					</div>
-				</div><?php
-			}?>
-			</div><!-- #MinimaX1 container --><?php 
 		}
-	}
-	/** 
- 	 * If no Posts are found output a default nothing found message
- 	 * Again we load complete Bootstrap HTML
- 	 *
- 	 * @since MiniMax 1.0.0
- 	 */
-	else {?>
-		<div class="MinimaX1 container">
+		/** 
+	 	 * If no Posts are found output a default nothing found message
+	 	 * Again we load complete Bootstrap HTML
+	 	 *
+	 	 * @since MiniMax 1.0.0
+	 	 */
+		else {?>
 			<div class="row">
 				<div class="col-md-12">
 					<h1><?php _e('No Posts', 'MinimaX1');?></h1>
@@ -116,9 +116,9 @@ else {
 				<div class="col-md-12">
 					<p><?php _e('No Contents', 'MinimaX1');?></p>
 				</div>
-			</div>
-		</div><!-- #MinimaX1 container --><?php 
-	}
+			</div><?php
+		}
+	?></div><!-- #container --><?php
 	get_footer();
 }
 

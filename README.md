@@ -3,7 +3,7 @@
 ## Description
 
 MinimaX1 is the minimalistic version of the MiniMax Theme series. 
-It includes a dynamic integration of Toolset Plugins, comes with Bootstrap and is WPML ready. 
+It includes a dynamic integration of Toolset Plugins. It integrates Bootstrap. 
 The rest is free to customize.
 
 ## Current Version
