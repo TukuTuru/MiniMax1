@@ -8,7 +8,7 @@ The rest is free to customize.
 
 ## Current Version
 
-Version: 1.0.1.
+Version: 1.0.2.
 
 ## Usage
 
