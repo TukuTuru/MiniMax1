@@ -3,6 +3,7 @@
  * The Main Template File.
  *
  * A WordPress Theme falls back to index.php if no other Template is available
+ * MinimaX has no other template files. Everything is handled here.
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @since MinimaX1 1.0.0
@@ -50,6 +51,7 @@ if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) {
 /** 
  * If Layouts is not active load a minimal WordPress default Loop.
  * We call the header and footer as well
+ * We need to include Toolset Views cases in this loop.
  * 
  * @link https://codex.wordpress.org/The_Loop
  *
@@ -79,9 +81,12 @@ else {
 				 		 * But we could also simply get_post_meta _views_template > 0
 				 		 * Views does NOT check if is_home or is_front_page() so we need still to 
 				 		 * get_post_meta($post-ID, '_views_template', true) > 0
+				 		 * Also output edit links. Views hooks in there too.
 				 		 *
 						 * @link https://developer.wordpress.org/reference/functions/the_content/
 			 			 * @link https://wp-types.com/documentation/user-guides/theme-support-for-content-templates/
+			 			 * @link https://developer.wordpress.org/reference/functions/edit_post_link/
+						 * 
 						 * @todo Juan should add check for is_home() and is_front_page to the Views API
 						 *       then we can remove the redundant check below.
 						 * 
@@ -99,9 +104,23 @@ else {
 				 		 *
 				 		 * @since MinimaX1 1.0.0
 						 */
-						else { ?>
+						else {
+							/** 
+				 		 	 * Create default HTML.
+						 	 */
+						 	?>
 							<div class="row">
 							    <div class="col-md-12"><?php
+							    	/**
+							    	 * Check if it is an archive or search page
+							    	 * If so output Archive title, Search Term and pagination
+							    	 * 
+							    	 * @link https://codex.wordpress.org/Function_Reference/is_archive
+							    	 * @link https://codex.wordpress.org/Function_Reference/is_search
+							    	 * @link https://developer.wordpress.org/reference/functions/the_archive_title/
+							    	 * @link https://developer.wordpress.org/reference/functions/paginate_links/
+							    	 * @link https://developer.wordpress.org/reference/functions/get_search_query/
+							    	 */
 							        if (is_archive() == true) {?>
 							        	<h1><?php the_archive_title();?></h1>
 							        	<?php echo paginate_links();
@@ -110,8 +129,15 @@ else {
 							        	<h1><?php _e('Search Results for: ', 'MinimaX1');echo get_search_query();?></h1>
 							        	<?php echo paginate_links();
 							        }?>
-							    </div>
-							</div>
+							    </div><!--#row-->
+							</div><!--#col-md-12-->
+							<?php
+							/** 
+							 * If it is_single() output Title, content and post edit links
+							 *
+							 * @link https://developer.wordpress.org/reference/functions/the_title/
+							 */
+							?>
 							<div class="row">
 								<div class="col-md-12">
 									<h1><?php the_title();?></h1>
@@ -133,6 +159,10 @@ else {
 			 	 * @since MiniMax 1.0.0
 			 	 */
 				else {
+					/**
+					 * We need to check if no results where found.
+					 * Arhchive not found is handled by 404
+					 */
 					if (is_search() ) {?>
 						<div class="row">
 						    <div class="col-md-12">
@@ -152,8 +182,21 @@ else {
 					</div><?php
 				}?>
 			</div>
-			<?php get_sidebar();?>
+			<?php 
+			/**
+			 * Display the sidebar if widgets are used
+			 * We check in sidebar.php if some are used
+			 * 
+			 * @link https://developer.wordpress.org/reference/functions/get_sidebar/
+			 */
+			get_sidebar();?>
 		</div>
 	</div><!-- #container -->
-	<?php get_footer();
-}
+	<?php 
+	/**
+	 * Call the Footer
+	 * 
+	 * @link https://developer.wordpress.org/reference/functions/get_footer/
+	 */ 
+	get_footer();
+}//if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) 

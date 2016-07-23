@@ -1,6 +1,6 @@
 <?php
 /**
- * The unctions and definitions
+ * The functions and definitions
  *
  * @link https://codex.wordpress.org/Theme_Development
  * @link https://codex.wordpress.org/Functions_File_Explained
@@ -101,8 +101,8 @@ add_action( 'widgets_init', 'MinimaX1_widgets_init' );
 	/* 
 	 * Then hook in our own functions to display the wrappers our theme requires:
 	 */
-	add_action('woocommerce_before_main_content', '<div class="MinimaX1 container">', 10);
-	add_action('woocommerce_after_main_content', '</div><!-- #MinimaX1 container -->', 10);
+	add_action('woocommerce_before_main_content', '<div class="container">', 10);
+	add_action('woocommerce_after_main_content', '</div><!-- #container -->', 10);
 
 /**
  * Enqueue CSS styles and Fonts
