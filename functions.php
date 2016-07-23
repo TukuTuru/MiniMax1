@@ -140,12 +140,12 @@ function MinimaX1_scripts() {
 add_action( 'wp_enqueue_scripts', 'MinimaX1_scripts' );
 
 /** 
- * Autoloader Function for MinimaX1 Classes path 
+ * Require Function for MinimaX1 Classes path 
  *
- * @link http://php.net/manual/en/function.spl-autoload-register.php
+ * @link http://php.net/manual/en/function.require-once.php
  *
  * @since MinimaX1 1.0.0
  */
-function MinimaX1_autoloader($MinimaX1_class) {
-    include (__DIR__ . '/' .'MinimaX1-classes' . '/' . $MinimaX1_class . '.class.php');
+function MinimaX1_require_once($MinimaX1_class) {
+    require_once(__DIR__ . '/' .'MinimaX1-classes' . '/' . $MinimaX1_class . '.class.php');
 }

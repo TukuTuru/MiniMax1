@@ -11,7 +11,7 @@
 ?>
 <nav role="navigation">
     <div class="navbar navbar-static-top navbar-default">
-        <div class="container">
+        <div class="container-fluid">
             <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -28,7 +28,7 @@
                 /**
                  * Include the Navwalker Class
                  */
-                spl_autoload_register('MinimaX1_autoloader');
+                MinimaX1_require_once('wp_bootstrap_navwalker');
 
                 $args = array(
                     'theme_location'    => 'primary',

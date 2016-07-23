@@ -85,6 +85,7 @@ else {
 						 */
 						if (defined('WPV_VERSION') && (is_wpv_content_template_assigned() == true)) {
 							the_content();
+							edit_post_link('edit Post: "' . $post->post_title . '"');
 						}
 						/** 
 				 		 * If Toolset Views is not active load the_title() and the_content().
@@ -103,6 +104,7 @@ else {
 							<div class="row">
 								<div class="col-md-12">
 									<p><?php the_content();?></p>
+									<?php edit_post_link('Edit Post "' . $post->post_title . '"');?>
 								</div>
 							</div><?php
 						}
