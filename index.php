@@ -85,7 +85,7 @@ else {
 						 */
 						if (defined('WPV_VERSION') && (is_wpv_content_template_assigned() == true)) {
 							the_content();
-							edit_post_link('edit Post: "' . $post->post_title . '"');
+							edit_post_link('edit: "' . $post->post_title . '"');
 						}
 						/** 
 				 		 * If Toolset Views is not active load the_title() and the_content().
@@ -97,6 +97,18 @@ else {
 						 */
 						else { ?>
 							<div class="row">
+							    <div class="col-md-12"><?php
+							        if (is_archive() == true) {?>
+							        	<h1><?php the_archive_title();?></h1>
+							        	<?php echo paginate_links();
+							        }
+							        if (is_search() ) {?>
+							        	<h1><?php _e('Search Results for: ', 'MinimaX1');echo get_search_query();?></h1>
+							        	<?php echo paginate_links();
+							        }?>
+							    </div>
+							</div>
+							<div class="row">
 								<div class="col-md-12">
 									<h1><?php the_title();?></h1>
 								</div>
@@ -104,7 +116,7 @@ else {
 							<div class="row">
 								<div class="col-md-12">
 									<p><?php the_content();?></p>
-									<?php edit_post_link('Edit Post "' . $post->post_title . '"');?>
+									<p><?php edit_post_link('Edit: "' . $post->post_title . '"');?></p>
 								</div>
 							</div><?php
 						}
@@ -116,10 +128,17 @@ else {
 			 	 *
 			 	 * @since MiniMax 1.0.0
 			 	 */
-				else {?>
+				else {
+					if (is_search() ) {?>
+						<div class="row">
+						    <div class="col-md-12">
+						    	<h1><?php _e('Search Results for: ', 'MinimaX1');echo get_search_query();?></h1>
+						    </div>
+						</div><?php
+					}?>
 					<div class="row">
 						<div class="col-md-12">
-							<h1><?php _e('No Posts', 'MinimaX1');?></h1>
+							<h2><?php _e('No Posts', 'MinimaX1');?></h2>
 						</div>
 					</div>
 					<div class="row">
