@@ -69,7 +69,7 @@ if ( ! function_exists( 'MinimaX1_setup' ) ) {
 	     *
 	     * @link https://wp-types.com/documentation/user-guides/layouts-theme-integration/ > Telling Layouts your theme is integrated
 	     **/
-		add_filter( 'ddl-is_integrated_theme', 'theme_is_integrated_with_layouts' ); 
+		add_filter( 'ddl-is_integrated_theme', 'MinimaX1_is_integrated_with_layouts' ); 
 	}
 }
 add_action( 'after_setup_theme', 'MinimaX1_setup' );
@@ -117,7 +117,7 @@ add_action( 'widgets_init', 'MinimaX1_widgets_init' );
  *
  * @link https://wp-types.com/documentation/user-guides/layouts-theme-integration/ > Telling Layouts your theme is integrated
  */
-function theme_is_integrated_with_layouts() {
+function MinimaX1_is_integrated_with_layouts() {
     return true;
 }
 
