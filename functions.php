@@ -63,6 +63,13 @@ if ( ! function_exists( 'MinimaX1_setup' ) ) {
 	 	 * @since MinimaX1 1.0.0
 	 	 */
 	    add_theme_support( 'woocommerce' );
+
+	    /**
+	     * Declare Toolset Layouts Support
+	     *
+	     * @link https://wp-types.com/documentation/user-guides/layouts-theme-integration/ > Telling Layouts your theme is integrated
+	     **/
+		add_filter( 'ddl-is_integrated_theme', 'theme_is_integrated_with_layouts' ); 
 	}
 }
 add_action( 'after_setup_theme', 'MinimaX1_setup' );
@@ -103,6 +110,16 @@ add_action( 'widgets_init', 'MinimaX1_widgets_init' );
 	 */
 	add_action('woocommerce_before_main_content', '<div class="container">', 10);
 	add_action('woocommerce_after_main_content', '</div><!-- #container -->', 10);
+
+	
+/**
+ * Callback function to integrate Toolset Layouts
+ *
+ * @link https://wp-types.com/documentation/user-guides/layouts-theme-integration/ > Telling Layouts your theme is integrated
+ */
+function theme_is_integrated_with_layouts() {
+    return true;
+}
 
 /**
  * Enqueue CSS styles and Fonts
