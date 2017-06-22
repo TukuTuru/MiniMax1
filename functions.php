@@ -120,6 +120,7 @@ add_action( 'widgets_init', 'MinimaX1_widgets_init' );
 function MinimaX1_is_integrated_with_layouts() {
     return true;
 }
+add_filter('ddl-is_integrated_theme', 'MinimaX1_is_integrated_with_layouts');
 
 /**
  * Enqueue CSS styles and Fonts
