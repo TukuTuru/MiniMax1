@@ -9,7 +9,7 @@ When you install it you are presented with a blank slate, and a TopBar Menu (Rea
 If you don't use Toolset, you can still see your Content and Titles.
 If you use Toolset Views, you'll design the contents (from edge to edge of the screen) with either Layouts, Content Templates or native WordPresss editors.
 
-## Usage
+## Usage
 
 Study the Code Comments, they are extensive for educational purpose
 Download and unzip to your FTP.
