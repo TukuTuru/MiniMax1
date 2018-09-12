@@ -54,22 +54,6 @@ if ( ! function_exists( 'MinimaX1_setup' ) ) {
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary Menu', 'MinimaX1' )
 		) );
-
-		/**
-	 	 * Declare WooCommerce Support.
-	 	 *
-	 	 * @link http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
-	 	 *
-	 	 * @since MinimaX1 1.0.0
-	 	 */
-	    add_theme_support( 'woocommerce' );
-
-	    /**
-	     * Declare Toolset Layouts Support
-	     *
-	     * @link https://wp-types.com/documentation/user-guides/layouts-theme-integration/ > Telling Layouts your theme is integrated
-	     **/
-		add_filter( 'ddl-is_integrated_theme', 'MinimaX1_is_integrated_with_layouts' ); 
 	}
 }
 add_action( 'after_setup_theme', 'MinimaX1_setup' );
@@ -91,26 +75,6 @@ function MinimaX1_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'MinimaX1_widgets_init' );
-
-/**
- * Integrate WooCommerce.
- *
- * @link http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
- *
- * @since MinimaX1 1.0.0
- */
-	/* 
-	 * First unhook the WooCommerce wrappers
-	 */
-	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-
-	/* 
-	 * Then hook in our own functions to display the wrappers our theme requires:
-	 */
-	add_action('woocommerce_before_main_content', '<div class="container">', 10);
-	add_action('woocommerce_after_main_content', '</div><!-- #container -->', 10);
-
 	
 /**
  * Callback function to integrate Toolset Layouts
