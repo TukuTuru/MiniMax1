@@ -2,24 +2,33 @@
 
 ## Description
 
-MinimaX1 is the minimalistic version of a dynamic theme that integrates with Toolset
+MinimaX1 is the minimalistic version of a dynamic theme that integrates with Toolset (best used with Layouts)
 
-When you install it you are presented with a blank slate, and a TopBar Menu (Read Below how to remove that).
+When you install it you are presented with a blank slate.
 
-If you don't use Toolset, you can still see your Content and Titles.
-If you use Toolset Views, you'll design the contents (from edge to edge of the screen) with either Layouts, Content Templates or native WordPresss editors.
+The Theme is oriented on "Let Plugins provide functionality and the Theme design"
+
+Just, this Theme as well leaves the design the to the Plugins, it just provides a blank slate to be designed with Toolset.
+
+If you don't use Toolset, you can still see your Content and Titles (See "IMPORTANT" below)
+
+If you use Toolset , you'll design the contents with either Layouts, Content Templates or native WordPresss editors.
+
+Usually, you design from edge to edge of the screen, but with Content Templates that's more tricky than Layouts
+
+The theme is not really suggested to be used without Toolset as it basically has no settings or whatsoever, however if you know how to customize a Theme in the code, it's possible of course.
 
 ## Usage
 
+IMPORTANT: You need Toolset to load Bootstrap 3.0, this theme does not provide Bootstrap.
+Toolset Provides it already, so we can spare the space...
+
+The Theme features a 404 file so you can style that in Layouts
+
+No Menu, no Sidebar, nothing but blank slate.
+
 Study the Code Comments, they are extensive for educational purpose
-Download and unzip to your FTP.
-Activate in WordPress > Themes.
-The Menu can be removed in the header.php file, just remove the lines 64 to 71:
-```<?php 
-        /**
-         * The main navigation
-         * Edit in bootstrap-nav.php
-         *
-         * @link https://developer.wordpress.org/reference/functions/get_template_part/
-         */
-        get_template_part( 'bootstrap-nav'); ?>
+
+Please report issues to this Git Project
+
+This is an experimental product, please use at your own risk.
