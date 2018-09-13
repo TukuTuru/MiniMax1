@@ -43,39 +43,10 @@ if ( ! function_exists( 'MinimaX1_setup' ) ) {
 		 * @since MinimaX1 1.0.0
 		 */
 		add_theme_support( 'post-thumbnails' );
-
-		/**
-		 * This theme uses wp_nav_menu() in 1 location.
-		 *
-		 * @link https://developer.wordpress.org/reference/functions/wp_nav_menu/
-		 *
-		 * @since MinimaX1 1.0.0
-		 */
-		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary Menu', 'MinimaX1' )
-		) );
 	}
 }
 add_action( 'after_setup_theme', 'MinimaX1_setup' );
 
-/**
- * Register widget area.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
- */
-function MinimaX1_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'MinimaX1' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>',
-	) );
-}
-add_action( 'widgets_init', 'MinimaX1_widgets_init' );
-	
 /**
  * Callback function to integrate Toolset Layouts
  *
@@ -94,16 +65,10 @@ add_filter('ddl-is_integrated_theme', 'MinimaX1_is_integrated_with_layouts');
  * @since MiniMax 1.0.0
  */
 function MinimaX1_styles() {        
-	//Enqueue Bootstrap CSS
-	wp_enqueue_style( 'MinimaX1-bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', '3.3.6', 'all' );
-        
-	/**
-	 * @todo Enqueue FontAwesome
-     *
-     */
-	//wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '4.2.0', 'all' );
+	//Here you can enqueue your own style, for example:
+	//wp_enqueue_style( 'MinimaX1-bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', '3.3.6', 'all' );
 
-	//Enqueue the MinimaX1 Main Style Sheet
+	//Enqueue the MinimaX1 Main Style Sheet. Leave this last in the cascade, so if you add CSS to the Theme it applies.
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'MinimaX1_styles' );
@@ -116,18 +81,10 @@ add_action( 'wp_enqueue_scripts', 'MinimaX1_styles' );
  * @since MinimaX1 1.0.0
  */
 function MinimaX1_scripts() {
-	//Enqueue Bootstrap JS and add jQuery Dependency
-	wp_enqueue_script('MinimaX1-bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true);
+	//Here you can enqueue your won JS scripts, for example
+	//wp_enqueue_script('MinimaX1-bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true);
+
+	//The theme has no own JS file, if you need one, enqueue one.
+
 }
 add_action( 'wp_enqueue_scripts', 'MinimaX1_scripts' );
-
-/** 
- * Require Function for MinimaX1 Classes path 
- *
- * @link http://php.net/manual/en/function.require-once.php
- *
- * @since MinimaX1 1.0.0
- */
-function MinimaX1_require_once($MinimaX1_class) {
-    require_once(__DIR__ . '/' .'MinimaX1-classes' . '/' . $MinimaX1_class . '.class.php');
-}

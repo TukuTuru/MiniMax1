@@ -60,13 +60,4 @@
      */
     ?> 
     <body <?php body_class(); ?>>
-
-        <?php 
-        /**
-         * The main navigation
-         * Edit in bootstrap-nav.php
-         *
-         * @link https://developer.wordpress.org/reference/functions/get_template_part/
-         */
-        get_template_part( 'bootstrap-nav'); ?> 
         

@@ -62,13 +62,7 @@ else {
 	<!-- open the main container-->
 	<div class="container-fluid">
 	    <div class="row">
-			<?php 
-			if ( is_active_sidebar( 'sidebar-1' ) ) {?>
-				<div class="col-md-9"><?php 
-			}
-			else {?>
-				<div class="col-md-12"><?php
-			}
+			<div class="col-md-12"><?php
 				if ( have_posts() ) { 
 					while ( have_posts() ) {
 						the_post();
@@ -182,14 +176,6 @@ else {
 					</div><?php
 				}?>
 			</div>
-			<?php 
-			/**
-			 * Display the sidebar if widgets are used
-			 * We check in sidebar.php if some are used
-			 * 
-			 * @link https://developer.wordpress.org/reference/functions/get_sidebar/
-			 */
-			get_sidebar();?>
 		</div>
 	</div><!-- #container -->
 	<?php 
