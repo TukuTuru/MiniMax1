@@ -32,17 +32,14 @@ else {
 get_header(); ?>
 	<div class="container-fluid">		
 		<div class="row">
-			<?php 
-			if ( is_active_sidebar( 'sidebar-1' ) ) {?>
-				<div class="col-md-9"><?php 
-			}
-			else {?>
-				<div class="col-md-12"><?php
-			}?>
-					<h1 class="text-center"><?php _e( 'Error 404', 'MinimaX1' ); ?></h1>
-					<a href="<?php esc_url( home_url( '/' ) )?>"><h3 class="text-center"><?php _e('Go Home', 'MinimaX1');?></h3></a>
-				</div>
-			<?php get_sidebar();?>
+			<div class="col-md-12">
+				<h1 class="text-center"><?php _e( 'Error 404', 'MinimaX1' ); ?>
+					
+				</h1>
+				<a href="<?php esc_url( home_url( '/' ) )?>">
+					<h3 class="text-center"><?php _e('Go Home', 'MinimaX1');?></h3>
+				</a>
+			</div>
 		</div>
 	</div><!-- #container -->
 <?php get_footer(); 
