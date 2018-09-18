@@ -32,3 +32,7 @@ Study the Code Comments, they are extensive for educational purpose
 Please report issues to this Git Project
 
 This is an experimental product, please use at your own risk.
+
+## Note
+
+You can of course delete the CODE_OF_CONDUCT File from the theme when using it, it is not related to the Theme itself (and still the theme is small enough :P )
