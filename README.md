@@ -23,16 +23,18 @@ The theme is not really suggested to be used without Toolset as it basically has
 IMPORTANT: You need Toolset to load Bootstrap 3.0, this theme does not provide Bootstrap.
 Toolset Provides it already, so we can spare the space...
 
-The Theme features a 404 file so you can style that in Layouts
+No WooCommerce Support inbuilt, see here how to add it: https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes.
 
-No Menu, no Sidebar, nothing but blank slate.
+The Theme features a 404 file so you can style that in Layouts.
 
-Study the Code Comments, they are extensive for educational purpose
+No Menu, no Sidebar, nothing but blank slate. 
+
+Study the Code Comments, they are extensive for educational purpose.
 
 Please report issues to this Git Project
-
-This is an experimental product, please use at your own risk.
 
 ## Note
 
 You can of course delete the CODE_OF_CONDUCT File from the theme when using it, it is not related to the Theme itself (and still the theme is small enough :P )
+
+This is an experimental product, please use at your own risk.
