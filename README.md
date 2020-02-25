@@ -4,13 +4,13 @@ Updates coming soon (Automatic upgrade notification and new versions supporting 
 
 ## Description
 
-It's suggested to use MinimaX-1 Theme either with Toolset Layouts or Toolste Views, but not Toolset Blocks or other Gutenberg oriented page builders.
-This Theme represents the most minimalistic and most functional possible integration of Toolset Layouts and Views (best used with Layouts) into any WordPress Theme.
+MinimaX-1 Theme is a Theme built to be used with Toolset Layouts or Toolste Views, but not Toolset Blocks or other Gutenberg oriented page builders.
+MinimaX-1 Theme represents the most minimalistic possible, most functional possible integration of Toolset Layouts and Views into any WordPress Theme.
 
-A blank slate is ready to be filled with Cells using Toolset Layouts, or HTML code using Content Templates of Views.
+Design everything you see on the front end of your site with Cells using Toolset Layouts, or HTML code using Content Templates of Views.
 
-If you don't use Toolset, you can still see your Content and Titles (See "IMPORTANT" below).
-In that case however please enqueue Bootstrap manually, as MinimaX-1 relies on Toolset delivering Bootstrap 3
+If you don't use Toolset, MinimaX-1 Theme still renders Content and Title of posts (See "IMPORTANT" below).
+In that case however please enqueue Bootstrap manually, as MinimaX-1 Theme traditionally relies on Toolset delivering Bootstrap 3
 
 ## Usage
 
