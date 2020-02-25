@@ -1,40 +1,34 @@
 # MinimaX1
 
+Updates coming soon (Automatic upgrade notification and new versions supporting Blocks, Bootstrap 4 and more)
+
 ## Description
 
-MinimaX1 is the minimalistic version of a dynamic theme that integrates with Toolset (best used with Layouts)
+It's suggested to use MinimaX-1 Theme either with Toolset Layouts or Toolste Views, but not Toolset Blocks or other Gutenberg oriented page builders.
+This Theme represents the most minimalistic and most functional possible integration of Toolset Layouts and Views (best used with Layouts) into any WordPress Theme.
 
-When you install it you are presented with a blank slate.
+A blank slate is ready to be filled with Cells using Toolset Layouts, or HTML code using Content Templates of Views.
 
-The Theme is oriented on "Let Plugins provide functionality and the Theme design"
-
-Just, this Theme as well leaves the design the to the Plugins, it just provides a blank slate to be designed with Toolset.
-
-If you don't use Toolset, you can still see your Content and Titles (See "IMPORTANT" below)
-
-If you use Toolset , you'll design the contents with either Layouts, Content Templates or native WordPresss editors.
-
-Usually, you design from edge to edge of the screen, but with Content Templates that's more tricky than Layouts
-
-The theme is not really suggested to be used without Toolset as it basically has no settings or whatsoever, however if you know how to customize a Theme in the code, it's possible of course.
+If you don't use Toolset, you can still see your Content and Titles (See "IMPORTANT" below).
+In that case however please enqueue Bootstrap manually, as MinimaX-1 relies on Toolset delivering Bootstrap 3
 
 ## Usage
 
-IMPORTANT: You need Toolset to load Bootstrap 3.0, this theme does not provide Bootstrap.
+- You need Toolset to load Bootstrap 3.0 (not 4!!), this theme does not provide Bootstrap at all.
 Toolset Provides it already, so we can spare the space...
 
-No WooCommerce Support inbuilt, see here how to add it: https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes.
+- No WooCommerce Support inbuilt, see here how to add it: https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes.
 
-The Theme features a 404 file so you can style that in Layouts.
+- The Theme features a 404 file so you can style that in Layouts.
 
-No Menu, no Sidebar, nothing but blank slate. 
+- No Menu, no Sidebar, nothing but blank slate. 
 
-Study the Code Comments, they are extensive for educational purpose.
+- Study the Code Comments, they are extensive for educational purpose.
 
-Please report issues to this Git Project
+- Please report issues to this Git Project
 
 ## Note
 
-You can of course delete the CODE_OF_CONDUCT File from the theme when using it, it is not related to the Theme itself (and still the theme is small enough :P )
+You can of course delete the CODE_OF_CONDUCT File from the theme when using it, it is not related to the Theme itself (and still the theme is small enough :P ). You are free to customize as you like.
 
 This is an experimental product, please use at your own risk.
