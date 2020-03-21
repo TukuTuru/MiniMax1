@@ -11,9 +11,8 @@
 $api_url = 'https://updates.tukutoi.com';
 
 /**
- * Gather Theme Data
+ * Define Theme Data
  */
-
 $theme_data = wp_get_theme();
 $theme_version = $theme_data->get( 'Version' );    
 $theme_base = 'MinimaX1';
