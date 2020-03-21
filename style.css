@@ -1,29 +1,16 @@
 /*
 Theme Name: MinimaX1
-Theme URI: https://github.com/TukuTuru/MinimaX1
+Theme URI: https://www.tukutoi.com/program/minimax-1/
 Author: bedas
-Author URI: https://wordpress.org/support/profile/bedas
-Description: MinimaX1 is the minimalistic version of a dynamic theme that integrates with Toolset (best used with Layouts). Read the ReadMe On GIT for more details
-Version: 1.1.0
+Author URI: https://www.tukutoi.com
+Description: A minimalistic, dynamic theme that integrates Toolset, best used with Toolset Layouts.
+Version: 2.0
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: MinimaX1
 */
 
-/*--------------------------------------------------------------
-# Word Break. Ensures Widget Contents are not screwing Row
---------------------------------------------------------------*/
-
-#secondary {
-	word-wrap: break-word;
-	-ms-word-break: break-all;
-	/* Be VERY careful with this, breaks normal words wh_erever */
-	word-break: break-all;
-	/* Non standard for webkit */
-	word-break: break-word;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	hyphens: auto;
-    -ms-word-wrap: break-word;
-}
+/*
+ *Add your CSS below
+ */
 
