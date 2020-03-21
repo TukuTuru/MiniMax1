@@ -9,7 +9,7 @@
 
 //Pull updates from 
 $minimax1_api_url = 'https://updates.tukutoi.com';
-
+set_site_transient('update_themes', null);
 /**
  * Define Theme Data
  */
@@ -49,5 +49,31 @@ function minimax1_check_for_update($minimax1_checked_data) {
 	return $minimax1_checked_data;
 }
 
+function minimax1_theme_api_callback($action, $args) {
+	global $minimax1_theme_base, $minimax1_api_url, $minimax1_theme_version, $minimax1_api_url;
+	
+	if ($args->slug != $minimax1_theme_base)
+		return false;
+	
+	// Get the current version
+
+	$args->version = $minimax1_theme_version;
+	$minimax1_request_string = prepare_request($action, $args);
+	$minimax1_request = wp_remote_post($minimax1_api_url, $minimax1_request_string);
+
+	if (is_wp_error($minimax1_request)) {
+		$minimax1_response = new WP_Error('themes_api_failed', __('An Unexpected HTTP Error occurred during the API request.</p> <p><a href="?" onclick="document.location.reload(); return false;">Try again</a>'), $minimax1_request->get_error_message());
+	} else {
+		$minimax1_response = unserialize($minimax1_request['body']);
+		
+		if ($minimax1_response === false)
+			$minimax1_response = new WP_Error('themes_api_failed', __('An unknown error occurred'), $minimax1_request['body']);
+	}
+	
+	return $minimax1_response;
+}
+
 //Hook to site_transient_update_themes
 add_filter('pre_set_site_transient_update_themes', 'minimax1_check_for_update');
+// Take over the Theme info screen on WP multisite
+add_filter('themes_api', 'minimax1_theme_api_callback', 10, 3);
