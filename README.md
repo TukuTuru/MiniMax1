@@ -20,7 +20,11 @@ In that case however please enqueue Bootstrap manually, because the MinimaX1 The
 - Upload to your WordPress Theme Folder and install like any other WordPress Theme.
 - Make sure to load Bootstrap 3 or above in WordPress Dashboard > Toolset > Settings or enqueue it manually in the Theme. 
 - Design your Website with Toolset Layouts or Content Templates.
-- You can but do not have to design separate mobile Templates using Toolset Layouts, just create a new unassigned Layout, and name it `{archive-name}-archive-mobile` for archives, `{assigned-layout-slug}-mobile` for post types, single posts or pages, and `404-mobile` for the Error 404 template. Then design your mobile appearance using these unassigned layouts. Header and Footer will still be the same and the Theme will ensure to load your Mobile Templates when required. Note, it only recognizes what `wp_is_mobile()` can.
+- You can, but do not have to, design separate mobile Templates using Toolset Layouts. You will need new, unassigned Layouts as follows: 
+-- `{archive-name}-archive-mobile` for archives 
+-- `{assigned-layout-slug}-mobile` for post types, single posts or pages  
+-- `404-mobile` for the Error 404 template. 
+  Then design your mobile appearance using these unassigned layouts. Header and Footer will still be the same and the Theme will ensure to load your Mobile Templates when required. Note, it only recognizes what `wp_is_mobile()` can. If no Layout exists as specified, it will fall back to the assigned Layout.
 
 ## Notes
 
