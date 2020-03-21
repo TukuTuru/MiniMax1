@@ -55,4 +55,4 @@ function check_for_update($checked_data) {
 }
 
 //Hook to site_transient_update_themes
-add_filter('site_transient_update_themes', 'check_for_update');
+add_filter('pre_set_site_transient_update_themes', 'check_for_update');
