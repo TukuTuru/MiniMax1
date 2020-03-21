@@ -1,6 +1,6 @@
 # MinimaX1
 
-A minimalistic, dynamic theme that integrates Toolset, best used with Toolset Layouts.
+A minimalistic, dynamic theme that integrates [Toolset](https://toolset.com/), best used with Toolset Layouts.
 
 ## Description
 
