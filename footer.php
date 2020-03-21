@@ -1,5 +1,8 @@
 <?php
+
+//Do not access directly
 if (!defined('ABSPATH')) exit;
+
 /**
  * The Footer.
  *
