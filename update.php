@@ -13,14 +13,10 @@ $api_url = 'https://updates.tukutoi.com';
 /**
  * Gather Theme Data
  */
-if(function_exists('wp_get_theme')){
-    $theme_data = wp_get_theme(get_option('template'));
-    $theme_version = $theme_data->Version;  
-} else {
-    $theme_data = get_theme_data( TEMPLATEPATH . '/style.css');
-    $theme_version = $theme_data['Version'];
-}    
-$theme_base = $theme_data['Name'];
+
+$theme_data = wp_get_theme();
+$theme_version = $theme_data->get( 'Version' );    
+$theme_base = 'MinimaX1';
 
 /**
  * Check if updates are available
