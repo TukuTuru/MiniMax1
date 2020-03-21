@@ -1,4 +1,4 @@
-### If you downloa from GitHub, rename the folder to `MinimaX1`. Make sure, the `-master` prefix is removed.
+### If downloading from GitHub, rename the theme to `MinimaX1`. Make sure, the `-master` prefix is removed.
 
 # MinimaX1
 
