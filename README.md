@@ -1,3 +1,5 @@
+# If you downloa from GitHub, rename the folder to `MinimaX1`. Make sure, the `-master` prefix is removed.
+
 # MinimaX1
 
 A minimalistic, dynamic theme that integrates [Toolset](https://toolset.com/), best used with Toolset Layouts.
