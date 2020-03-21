@@ -9,7 +9,7 @@
 
 //Pull updates from 
 $minimax_api_url = 'https://updates.tukutoi.com';
-set_site_transient('update_themes', null);
+
 /**
  * Define Theme Data
  */
