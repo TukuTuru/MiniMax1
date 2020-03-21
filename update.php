@@ -20,7 +20,7 @@ if(function_exists('wp_get_theme')){
     $theme_data = get_theme_data( TEMPLATEPATH . '/style.css');
     $theme_version = $theme_data['Version'];
 }    
-$theme_base = get_option('template');
+$theme_base = $theme_data['Name'];
 
 /**
  * Check if updates are available
