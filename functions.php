@@ -1,5 +1,8 @@
 <?php
+
+//Do not access directly
 if (!defined('ABSPATH')) exit;
+
 /**
  * The functions and definitions
  *
@@ -35,6 +38,19 @@ if ( ! function_exists( 'MinimaX1_setup' ) ) {
 		 * @since MinimaX1 1.0.0
 		 */
 		add_theme_support( 'title-tag' );
+
+		/**
+		 * Add one menu
+		 *
+		 * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
+		 *
+		 * @since MinimaX1 2.0.0
+		 */
+		register_nav_menus(
+    		array(
+    			'primary-menu' => __( 'Primary Menu' ),
+    		)
+		);
 
 		/**
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -89,3 +105,5 @@ function MinimaX1_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'MinimaX1_scripts' );
+
+include_once(get_template_directory() . '/update.php');
