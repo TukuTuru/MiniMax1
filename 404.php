@@ -1,5 +1,8 @@
 <?php
+
+//Do not access directly
 if (!defined('ABSPATH')) exit;
+
 /**
  * The template for displaying 404 pages (Not Found)
  *
@@ -24,9 +27,28 @@ if ( defined( 'WPDDL_VERSION' ) && is_ddlayout_assigned()) {
 	 */
 
 	get_header( ); //Call 'header-layouts' if you plan to style the header differntly
+	/**
+	 * Add logic for Mobile detection
+	 *
+	 * @since MinimaX1 2.0.0
+	 * @link https://developer.wordpress.org/reference/functions/wp_is_mobile/
+	 */
+	if (!wp_is_mobile()){
 		the_ddlayout( ); // Load a defualt 'default-layout-slug'. Layout must exist
+	}
+	else {
+		/**
+		 * Error 404 template can be styled for mobile 
+		 */
+		$assigned_layout_slug = '404-mobile';
+		if ( ddl_layout_slug_exists($assigned_layout_slug) == 1 ) {
+			the_ddlayout($assigned_layout_slug, array('post-content-callback' => '', 'allow_overrides' => 'false') );
+		}
+		else {
+			the_ddlayout();
+		}	
+	}
 	get_footer( ); //Call 'footer-layouts' if you plan to style the footer differntly
-
 }
 
 else {
