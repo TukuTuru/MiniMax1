@@ -26,7 +26,7 @@ In that case however please enqueue Bootstrap manually, because the MinimaX1 The
     3. `404-mobile` for the Error 404 template. 
     4. Then design your mobile appearance using these unassigned layouts. Header and Footer will still be the same and the Theme will ensure to load your Mobile Templates when required. 
     5. Note, it only recognizes what `wp_is_mobile()` can. If no Layout exists as specified, it will fall back to the assigned Layout.
-5. Update the Theme in Dashboard > Updates or Dashboard > Themes henever the notifications reccommend to do so. This works both on Multisites and Single Sites
+5. **Update the Theme in Dashboard > Updates or Dashboard > Themes whenever the notifications reccommend to do so. This works both on Multisites and Single Sites. The updates are stored externally on a private host.**
 
 ## Notes
 
